@@ -1,8 +1,3 @@
-/* .bodyForSlide{
-  position: absolute;
-  width: 100%;
-} */
-
 .add-task-container-main {
   display: flex;
   flex-direction: column;

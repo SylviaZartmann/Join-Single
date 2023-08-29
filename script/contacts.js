@@ -293,22 +293,6 @@ function validateEditContactInputs(i, nameInput, emailInput, numberInput) {
   return isValidNames && isValidEmail && isValidPhone;
 }
 
-// /**
-//  * this function checks the value of the input and validates in following three functions of correctness
-//  * @param {*} inputValue - the value the user puts into the input
-//  * @param {*} errorText - the ID of the text, which should be shown by not valid information
-//  */
-// function validateInput(inputValue, errorText) {
-//   let errorName = document.getElementById(errorText);
-//   if (errorText.includes('errorName')) {
-//     checkNameInputValidation(inputValue, errorName);
-//   } else if (errorText.includes('errorMail')) {
-//     checkMailInputValidation(inputValue, errorName);
-//   } else if (errorText.includes('errorPhone')) {
-//     checkPhoneInputValidation (inputValue, errorName);
-//   }
-// }
-
 
 function checkNameInputValidation(inputValue, errorText) {
   let errorName = document.getElementById(errorText);
