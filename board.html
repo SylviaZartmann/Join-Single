@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join - Board</title>
+    <link rel="icon" href="./img/Capa1.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style/add-task.css" />
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/summary.css" />
+    <link rel="stylesheet" href="style/board.css" />
+    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="style/animations.css" />
+    <link rel="stylesheet" href="style/media.css" />
+    <link rel="stylesheet" href="style/mobile.css" />
+  </head>
+
+  <body id="bodyBoard" onload="initBoard()" onclick="hideLogoutBtn()">
+      <header id="header-template"></header>
+
+      <div id="content" class="board-content-main ">
+        <div class="board">
+          <h1>Board</h1>
+          <div class="inp-container">
+            <input class="find-task-input" type="text" placeholder="Find Task" maxlength="12" id="filterInput" />
+            <div class="strich-gray2"></div>
+            <img class="search-icon" src="img/search-icon.png" alt="" />
+            <button onclick="initTemplateAddTask('todo')" class="button01 buttonAddTask"> <p>Add task</p><b class="plus">+</b></button>
+          </div>
+        </div>
+
+        <div class="box-container">
+          <div class="box-container-child" ondragleave="endDrap('todo')" ondragover="allowDrop(event, 'todo')" ondrop="changePos('todo'), endDrop()">
+            <div class="box-container-column">
+              <p>To do</p>
+              <img class="change-color2" src="img/plus-button.png" alt="" onclick="initTemplateAddTask('todo')" />
+            </div>
+            <div id="todo"></div>
+            <div id="dragdrop_todo" class="dragdrop"></div>
+          </div>
+
+          <div class="box-container-child " ondragover="allowDrop(event, 'progress')" ondragleave="endDrap('progress')" ondrop="changePos('progress'), endDrop()">
+            <div class="box-container-column">
+              <p>In progress</p>
+              <img class="change-color2" src="img/plus-button.png" alt="" onclick="initTemplateAddTask('progress')" />
+            </div>
+            <div id="progress"></div>
+            <div id="dragdrop_progress" class="dragdrop"></div>
+          </div>
+
+          <div class="box-container-child" ondragleave="endDrap('awaiting')" ondragover="allowDrop(event, 'awaiting')" ondrop="changePos('awaiting'), endDrop()">
+            <div class="box-container-column">
+              <p>Awaiting Feedback</p>
+              <img class="change-color2" src="img/plus-button.png" alt="" onclick="initTemplateAddTask('awaiting')" />
+            </div>
+            <div id="awaiting"></div>
+            <div id="dragdrop_awaiting" class="dragdrop"></div>
+          </div>
+
+          <div class="box-container-child" ondragleave="endDrap('done')" ondragover="allowDrop(event, 'done')" ondrop="changePos('done'), endDrop()">
+            <div class="box-container-column">
+              <p>Done</p>
+              <img class="change-color2" src="img/plus-button.png" alt="" onclick="initTemplateAddTask('done')" />
+            </div>
+            <div id="done"></div>
+            <div id="dragdrop_done" class="dragdrop"></div>
+          </div>
+        </div>
+
+        <div id="addTask" class="overlay">
+          <div id="add-task-overlay" class="overlay-content">
+            <div class="add-task-template" id="add-task-template"></div>
+          </div>
+        </div>
+      </div>
+      <div id="taskDetail" class="overlay">
+        <div class="BoardDetailcontent">
+          <div id="BoardDetail" class="BoardDetail"></div>
+        </div>
+      </div>
+      <script src="script/array.js"></script>
+      <script src="script/contacts.js"></script>
+      <script src="script/board.js"></script>
+      <script src="script/script.js"></script>
+      <script src="script/add-task.js"></script>
+  </body>
+</html>

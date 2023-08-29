@@ -1,0 +1,340 @@
+.contactBoard {
+  display: flex;
+  padding: 90px 0 0 232px;
+  height: 90%;
+}
+
+.contactOverview {
+  margin-left: 40px;
+  height: 90%;
+}
+
+.boardDescription {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin: 50px 0 40px 0;
+}
+
+.boardSlogan {
+  font-weight: 400;
+  font-size: 27px;
+  color: #2a3647;
+}
+
+.strich {
+  width: 3px;
+  background-color: #28abe2;
+  height: 60px;
+}
+
+.contactContainer {
+  width: 420px;
+  height: 90.5vh;
+  background: #ffffff;
+  box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.responsiveContactDetails {
+  display: none;
+}
+
+.contactListing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 3px;  
+  margin-left: 25px;
+  padding-right: 20px;
+}
+
+.alphaGroup {
+  width: 100%;
+}
+
+.line {
+  border-bottom: 1px solid #d1d1d1;
+  width: 90%;
+  margin: 0 10px 0  10px;
+}
+
+.initialsSection {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 35px;
+  width: 100%;
+}
+
+.initials, .initialsoverlay, .initialsLeft, .overlayAddUserPic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 47px;
+  color: #ffffff;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}
+
+.initials, .initialsoverlay {
+  border: solid 3px #ffffff;
+}
+
+.initialsoverlay, .overlayAddUserPic  {
+  margin-bottom: 65px;
+}
+
+.initialsLeft {
+  font-size: 12px;
+  width: 42px !important;
+  height: 42px !important;  
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.overlayAddUserPic {
+  background-color: #d1d1d1;
+}
+
+/*Left Side*/
+.initialsSectionLeft {
+  display: flex;
+  border-radius: 10px;
+  padding: 20px 0 20px 25px;
+  width: 100%;
+}
+
+.alphabet {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.contactNameLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}  
+
+.text-overflow {
+  font-weight: 400;
+  font-size: 21px;
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.initialsSectionLeft:hover {
+  background: #2a3647;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.initialsSectionLeft:hover .contactNameLeft h2{
+  color: #ffffff;
+}
+
+.taskForNameLeft {
+  margin: 0;
+  font-size: 16px;
+  color: #29abe2;
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*CONTACTS DETAILS RIGHT*/
+
+.contactName h2 {
+  font-weight: 500;
+  font-size: 47px;
+  color: #000000;
+  margin: 0 0 15px 0;
+}
+
+.taskForName {
+  font-size: 16px;
+  color: #29abe2;
+  cursor: pointer;
+}
+
+.taskForName:hover {
+  font-weight: 700;
+}
+
+.contactInformation {
+  display: flex;
+}
+
+.contactGeneral {
+  font-size: 21px;
+  color: #000000;
+}
+
+.editPencil {
+  width: 15px;
+  padding-right: 5px;
+}
+
+
+/*EDIT & ADD OVERLAY CONTACTS*/
+
+.formContacts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formContacts input {
+  margin-bottom: 20px;
+}
+
+.submitContacts {
+  margin-top: -40px;
+}
+
+.overlayContactContainer {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+  border-radius: 30px;
+  width: 1175px;
+  height: 594px;
+}
+
+.createContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 25px;
+}
+
+.contactEdit {
+  font-weight: 400;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  color: #2a3647;
+  padding-left: 45px;
+  cursor: pointer;
+}
+
+.cancelcross {
+rotate: 45deg;
+font-size: 40px;
+font-weight: 200;
+padding:0;
+margin: 0;
+margin-left: -8px;
+}
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #2a3647;
+  width: 806px;
+  height: 100%;
+  border-radius: 30px 0px 0px 30px;
+  padding: 0 0 0 50px;
+  font-weight: 700;
+  color: #ffffff;
+  gap: 12px;
+}
+
+.overlayLogo {
+  width: 48px;
+  height: auto;
+}
+.overlayHeadline h6 {
+  margin: 0;
+  font-size: 27px;
+  font-weight: 400;
+}
+
+.overlayHeadline {
+  font-size: 61px;
+  font-weight: 700;
+}
+
+.overlayLine {
+  width: 90px;
+  height: 2px;
+  background-color: #29abe2;
+  margin-bottom: 60px;
+}
+.editInputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;    
+    padding: 0 20px 0 20px;
+}
+
+.editInputsP {
+  display: flex;
+  position: absolute;
+  rotate: 45deg;
+  font-size: 40px;
+  font-weight: 200;
+  top: -2%;
+  left: 95%;
+  cursor: pointer;
+}
+
+.initialsSectionOverlay {
+  display: flex;
+  align-items: center;
+  margin: 50px 50px 40px 50px;
+}
+
+.inputValidation {
+  position: relative;
+  padding: 5px 0 25px 50px;
+}
+
+.inputs {
+  width: 400px;
+  height: 40px;
+  border-style: unset;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: right 30px center;
+  font-size: 20px;
+}
+ 
+.contactOverview button {
+  position: absolute;
+  top: 850px;
+  right: 5%;
+}
+
+.ContactCreatedPopup{
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 326px;
+  height: 74px;
+  z-index: 10;
+}

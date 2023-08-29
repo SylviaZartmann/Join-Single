@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join - Login</title>
+    <link rel="icon" href="./img/Capa1.png" type="image/x-icon" />
+    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/login.css" />
+    <link rel="stylesheet" href="style/animations.css" />
+    <link rel="stylesheet" href="style/media.css" />
+    <link rel="stylesheet" href="style/mobile.css" />
+  </head>
+
+  <body onload="init()">
+    <div class="login-header-container">
+      <img src="img/Capa1.png" class="move-logo-animation" />
+      <div class="login-header-container-sign-up" id="login-sign-up-container">
+        <span class="sign-up-span">Not a Join user?</span>
+        <button class="button01 sign-up-button" onclick="switchContainer('login-container', 'sign-up-container', 'login-sign-up-container')">Sign up</button>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="login-container" id="login-container">
+        <h1 class="headline-one">Log in</h1>
+        <div class="log-in-underline"></div>
+        <form id="loginForm" class="login-form-container" onsubmit="loginUser(event); return false">
+          <input class="inputsLogin" type="email" required placeholder="Email" style="background-image: url('img/mail-icon.png')" id="log-in-email" />
+          <input class="inputsLogin" type="password" required placeholder="Password" style="background-image: url('img/schloss-icon.png')" id="log-in-password" />
+          <span id="user-not-found" class="user-not-found d-none">Error: Invalid username or password.</span>
+          <div class="remember-me-container">
+            <div class="remember">
+              <input type="checkbox" id="login-checkbox" />
+              <span>Remember me</span>
+            </div>
+            <span onclick="switchContainer('login-container', 'forgot-my-password-container', 'login-sign-up-container')" class="login-forgot-my-password"
+              >Forgot my password</span
+            >
+          </div>
+        </form>
+        <div class="log-in-button-container">
+          <button form="loginForm" class="button01">Log in</button>
+          <button class="button02" onclick="loginGuest('guest@web.de', 'guest123')">Guest Log in</button>
+        </div>
+        <div id="msg-box"></div>
+      </div>
+
+      <div class="sign-up-container d-none" id="sign-up-container">
+        <img src="img/Pfeil-links.png" onclick="backToLoginContainer('login-container', 'sign-up-container', 'login-sign-up-container')" />
+        <h1 class="headline-one">Sign up</h1>
+        <div class="log-in-underline"></div>
+        <form class="sign-up-form-container" onsubmit="addUser(); return false;">
+          <input class="inputsLogin" type="text" placeholder="Name" required style="background-image: url('img/user.png')" id="sign-up-name" />
+          <input class="inputsLogin" type="email" placeholder="Email" required style="background-image: url('img/mail-icon.png')" id="sign-up-email" />
+          <input class="inputsLogin" type="password" placeholder="Password" required style="background-image: url('img/schloss-icon.png')" id="sign-up-password" />
+          <div class="sign-up-button-container">
+            <button class="button01">Sign up</button>
+          </div>
+        </form>
+      </div>
+      <div class="forgot-my-password-container d-none" id="forgot-my-password-container">
+        <img onclick="backToLoginContainer('login-container', 'forgot-my-password-container', 'login-sign-up-container')" src="img/Pfeil-links.png" />
+        <h1 class="headline-one">I forgot my password</h1>
+        <div class="log-in-underline"></div>
+        <p>
+          Don't worry! We will send you an email with the instructions to <br />
+          reset your password.
+        </p>
+        <form class="forgot-my-password-form-container">
+          <input type="email" class="inputsLogin" placeholder="Email" required style="background-image: url('img/mail-icon.png')" />
+          <button class="button01">Send me the email</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="script/log+reg+backend.js"></script>
+  </body>
+</html>

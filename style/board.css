@@ -1,0 +1,387 @@
+.board-content-main {
+  padding: 160px 0 0 302px;
+}
+
+.board {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 90px 20px 50px;
+}
+
+.inp-container {
+  display: flex;
+  gap: 30px;
+  position: relative;
+}
+
+.find-task-input {
+  font-size: 20px;
+  width: 200px;
+  border: solid 1px rgb(167, 166, 166);
+  border-radius: 10px;
+  padding-left: 20px;
+}
+
+.plus {
+  font-size: 30px;
+}
+
+.search-icon {
+  height: 22px;
+  position: absolute;
+  margin: 15px 0 0 190px;
+}
+
+.strich-gray2 {
+  width: 1.5px;
+  background-color: rgb(167, 166, 166);
+  height: 30px;
+  position: absolute;
+  margin: 12px 0 0 180px;
+}
+
+/* DRAG DROP ZONE */
+
+.box-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  width: 95%;
+}
+
+.box-container-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+}
+.box-container-column {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 230px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.box-container-column img {
+  font-weight: 700;
+  font-size: 21px;
+  border: none;
+  background-color: transparent;
+}
+
+.box-container-column img:hover {
+  filter: saturate(var(--value, 1));
+  --value: 120;
+  cursor: pointer;
+}
+
+.dragdrop {
+  width: 220px;
+  height: 180px;
+  border-radius: 25px;
+  padding: 18px 19px 18px 19px;
+}
+
+.border {
+  border: dotted 2px gray;
+}
+
+.change-color2 {
+  width: 23px;
+  padding-left: 5px;
+}
+
+/* BOARD - TASKS */
+
+.BoardTaskTeammates {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: solid white;
+  border-width: 2px;
+  margin: -7px 0 0 -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.Boardteammates {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 150px;
+  flex-wrap: wrap;
+  padding: 7px 0 0 10px;
+}
+
+.BoardTask {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border: solid 1px #f1eeee;
+  border-radius: 25px;
+  gap: 20px;
+  padding: 18px 19px 18px 19px;
+  margin: 5px 0 10px 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.BoardTask:active {
+  transform: rotate(5deg);
+}
+
+.TasksCategories {
+  display:flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.BoardCategory {
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 27px;
+  margin: 5px 5px 0 0;
+}
+
+.BoardCategory p {
+  color: #ffffff;
+  padding: 4px 20px 4px 20px;
+}
+
+.BoardText p {
+  font-weight: 400;
+  font-size: 16px;
+  color: #A8A8A8;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+          line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.BoardText h4 {
+  font-weight: 700;
+  font-size: 16px;
+  margin: 0 0 10px 0;
+}
+
+.progressbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progressbar-container p {
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.progressbar, .progressbar-progress {
+  height: 6px;
+  border-radius: 5px;
+}
+
+.progressbar {
+  width: 60%;
+  position:relative;
+  background-color: #f4f4f4;
+}
+
+.progressbar-progress {
+  position:absolute;
+  background-color: #2b3647;
+}
+
+.prio-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10px;
+}
+
+/** OVERLAY BOARD DETAIL**/
+
+.closingCross {
+  rotate: 45deg; 
+  font-size: 50px; 
+  font-weight: 200; 
+  position: absolute; 
+  top: 2%; 
+  left: 90%; 
+  cursor: pointer;
+}
+
+.BoardDetailcontent {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: max-content;
+  height: fit-content;
+  border-radius: 30px;
+}
+
+.BoardDetail {
+  display: flex;
+  flex-direction: column;
+  width: 525px;
+  padding: 50px;
+  gap: 25px;
+}
+
+.BoardDetail p {
+  margin: 0;
+}
+
+.BoardDetailCategory {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.BoardDetailCategory p{
+  font-size: 27px;
+  font-weight: 400;
+  color: white;
+  padding: 4px 36.5px;
+  border-radius: 8px;
+  margin-right: 10px;
+  margin: 0 10px 10px 0;
+}
+
+.BoardDetailDate, .BoardDetailPrio{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.BoardDetailPrioTask {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 10px;
+  padding: 4px 18px 4px 18px;
+  font-size: 21px;
+}
+
+.BoardDetailPrio p, .BoardDetailPrioTask p {
+  margin: 0;
+  font-size:21px;
+  font-weight: 700;
+}
+
+.BoardDetailTeamMates {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.BoardDetailTeam {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 25px;
+  max-height: 220px;
+  overflow: auto;
+  overflow-x: hidden;
+  direction:rtl;
+  margin-left: -15px;
+}
+
+.BoardTaskTeamTrash {
+  display: flex;
+  justify-content: space-between;
+}
+
+.BoardDetailTeamTask-help {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 20px;
+  padding: 0 30px 0 5px;
+  direction:ltr
+}
+
+.BoardDetailTeamTask {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  color: white;
+  display: flex;
+  gap: 10px;
+  border-radius: 58px;
+  border: 2px solid white;
+}
+
+.BoardDetailTrashEdit {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.BoardDetailTrashEdit img {
+  height: 32px;
+}
+
+.BoardDetailTrash, .BoardDetailEdit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #2b3647;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}
+
+.BoardDetailTrash {
+  border-radius: 10px 0 0 10px;
+  background-color: #ffffff;
+} 
+.BoardDetailTrash:hover {
+  border-color: #2ebbda;
+  color: #2ebbda;
+  transition: transform ease-in-out 100ms;
+}
+.BoardDetailTrash:hover img {
+  filter: invert(52%) sepia(87%) saturate(349%) hue-rotate(143deg) brightness(101%) contrast(102%);
+}
+
+.BoardDetailEdit {
+  border-radius: 0 10px 10px 0;
+  background-color: #2b3647;
+}
+.BoardDetailEdit:hover {
+  background-color: #2ebbda;
+  border-color: #2ebbda;
+  transition: transform ease-in-out 100ms;
+}
+
+.BoardDetailEdit img {
+  filter: brightness(0) invert(1);
+}
+
+.draggable-container {
+  touch-action: pan-y;
+}

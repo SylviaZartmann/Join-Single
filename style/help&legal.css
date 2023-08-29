@@ -1,0 +1,41 @@
+.help-container-main h1, .legal-notice-container-main h1 {
+  margin-bottom: 13px;  
+}
+
+.help-container-main h2, .legal-notice-container-main h2, .list b {
+  font-size: 27px;
+}
+
+.help-container-main h2, .legal-notice-container-main h2, .legal-notice-container-main h2 {
+  margin: 35px 0 10px 0;
+}
+
+.legal-notice-container-main li, .legal-notice-container-main p, .help-container-main p {
+  font-size: 16px;
+}
+
+.help-container-main p {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.legal-notice-container-main p {
+  margin: 0;
+}
+
+.list{
+  margin-top: 25px;
+}
+
+.list b {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.help-container-main, .legal-notice-container-main {
+  display: flex;
+  flex-direction: column;
+  padding: 171px 50px 0 347px;
+}

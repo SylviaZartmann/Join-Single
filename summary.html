@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join - Summary</title>
+  <link rel="icon" href="./img/Capa1.png" type="image/x-icon" />
+  <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="style/summary.css" />
+  <link rel="stylesheet" href="style/board.css" />
+  <link rel="stylesheet" href="fonts/fonts.css" />
+  <link rel="stylesheet" href="style/add-task.css" />
+  <link rel="stylesheet" href="style/animations.css" />
+  <link rel="stylesheet" href="style/media.css">
+  <link rel="stylesheet" href="style/mobile.css" />
+</head>
+
+<body onload="init()" onclick="hideLogoutBtn()">
+  <div id="header-template"></div>
+
+  <div class="summary-content">
+    <div class="summary">
+      <h1>Summary</h1>
+      <div class="strich"></div>
+      <h3>Everything in a nutshell!</h3>
+    </div>
+
+    <div class="boards">
+      <div class="board_of_boards">
+        <div class="board-1">
+          <a href="board.html">
+            <div class="box1">
+              <p id="tasks-in-board"></p>
+              <h4>Tasks in Board</h4>
+            </div>
+          </a>
+          <a href="board.html">
+            <div class="box1">
+              <p id="progress-count"></p>
+              <h4>Tasks in Progress</h4>
+            </div>
+          </a>
+          <a href="board.html">
+            <div class="box1">
+              <p id="awaiting-count"></p>
+              <h4>Awaiting Feedback</h4>
+            </div>
+          </a>
+        </div>
+
+        <div class="board-2">
+          <a class="box4" href="board.html">
+            <img src="img/urgent-icon.png" alt="" />
+            <div class="box4-inbox">
+              <p id="urgentTasks">1</p>
+              <h4>Urgent</h4>
+            </div>
+            <div class="strich-gray"></div>
+            <div class="box4-box">
+              <p id="todays-date"></p>
+              <h4>Upcoming Deadline</h4>
+            </div>
+          </a>
+        </div>
+
+        <div class="board-3">
+          <a href="board.html">
+            <div class="box5">
+              <img class="change-color" src="img/todo-icon.png" alt="" />
+              <div class="box5-box">
+                <p id="todo-count"></p>
+                <h4>To-do</h4>
+              </div>
+            </div>
+          </a>
+          <a href="board.html">
+            <div class="box5">
+              <img class="change-color" src="img/done-icon.png" alt="" />
+              <div class="box5-box">
+                <p id="done-count"></p>
+                <h4>Done</h4>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="greeting">
+        <p id="greeting">Good Morning,</p>
+        <h1 id="greet-user"></h1>
+      </div>
+    </div>
+  </div>
+
+  <script src="script/array.js"></script>
+  <script src="script/contacts.js"></script>
+  <script src="script/board.js"></script>
+  <script src="script/script.js"></script>
+  <script src="script/summary.js"></script>
+</body>
+
+</html>

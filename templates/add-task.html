@@ -1,0 +1,126 @@
+<div id="addTaskForm">
+  <p id="closeXtemplate" class="closeXtemplate" onclick="closeTemplateAddTask()">+</p>
+  <h1 id="headerAddTask">Add Task</h1>
+  <div class="first-container">
+    <div class="child-container-left">
+      <div>
+        <h4>Title</h4>
+        <input required minlength="3" id="title-input" class="title" type="text" placeholder="Enter a title" />
+        <span id="submitTitleInput" class="submitInputs d-none">Please insert three or more letters.
+        </span>
+
+      </div>
+
+      <div>
+        <h4>Description</h4>
+        <textarea id="description-input" type="text" class="description" rows="6" cols="32"
+          placeholder="Enter a Description"></textarea>
+      </div>
+
+      <div>
+        <h4>Category</h4>
+        <div class="new-category-container">
+          <div class="category"
+            onclick="toggleVisibility('available-categories'), toggleVisibility('category-new-input-submit')">
+            Select category
+            <img src="img/arrow-down.png" alt="">
+          </div>
+          <div id="category-new-input-submit" style="display: none;">
+            <div id="category-new-input" class="category-new-input">
+              <input id="color-select" class="color-select" type="color" value="#000000">
+              <input class="input-category" id="add-new-category" type="text" placeholder="Add new category">
+              <div class="accept-new-category">
+                <img class="cancel-icon" src="img/cross-icon.png" alt="cancel-icon" onclick="clearInputCategories()">
+                <div class="strich-gray4"></div>
+                <img id="checkmarkCategory" class="done-icon2" onclick="saveNewCategory()" src="img/done-icon2.png"
+                  alt="done-icon">
+              </div>
+            </div>
+            <span id="submitCategoryInput" class="submitInputs d-none">Please insert three or more letters.</span>
+          </div>
+
+
+          <div class="available-categories" id="available-categories" style="display: none;"></div>
+        </div>
+        <div class="selected-categories">
+          <p>Selected:</p>
+          <div class="selected-categories" id="selected-categories"></div>
+        </div>
+      </div>
+
+      <div>
+        <h4>Assigned to</h4>
+        <div class="assign-to-main">
+          <div class="assign-to" onclick="toggleVisibility('assign-to')">
+            Select contacts to assign
+            <img src="img/arrow-down.png" alt="">
+          </div>
+          <div class="assign-to-dd" id="assign-to" style="display: none;">
+          </div>
+        </div>
+        <div class="selected-categories">
+          <p>Selected:</p>
+          <div class="selected-categories" id="selected-teammates"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="strich-gray3"></div>
+
+    <div class="child-container-right">
+      <div>
+        <h4>Due Date</h4>
+        <input required id="date-input" min="" class="title" type="text" onfocus="(this.type='date')"
+          onblur="(this.type='text')" placeholder="Enter a date" />
+        <span id="submitDateInput" class="submitInputs d-none">Please insert a date. </span>
+      </div>
+
+      <div>
+        <h4>Prio</h4>
+        <div class="difficulty-level">
+          <div onclick="setAndTogglePriorities('urgent', 'medium', 'low')" id="urgent" class="prioContainer">Urgent
+            <img src="img/urgent.icon2.png" alt="">
+          </div>
+          <div onclick="setAndTogglePriorities('medium', 'urgent', 'low')" id="medium"
+            class="prioContainer medium-margin">Medium
+            <img src="img/urgent-icon3.png" alt="">
+          </div>
+          <div onclick="setAndTogglePriorities('low', 'urgent', 'medium')" id="low" class="prioContainer">Low
+            <img src="img/urgent-icon4.png" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h4>Subtasks</h4>
+        <div class="align-Add-Subtask">
+          <input class="title" type="text" id="add-subtask" placeholder="Add new subtask" />
+          <div class="accept-new-subtask">
+            <img class="cancel-icon" src="img/cross-icon.png" alt="cancel-icon" onclick="clearInputSubtasks()">
+            <div class="strich-gray4"></div>
+            <img id="checkmarkSubtasks" class="done-icon2" onclick="getSubtasksFromInput()" src="img/done-icon2.png"
+              alt="done-icon">
+          </div>
+        </div>
+        <span id="submitSubtaskInput" class="submitInputs d-none">Please insert three or more letters. </span>
+        <div class="newsubtasks-subtasks">
+          <div class="display-subtasks" id="subtask"></div>
+          <div class="display-newsubtasks" id="newSubtask"></div>
+        </div>
+
+      </div>
+      <div class="buttons-add-task-fix">
+        <div id="TaskAddedPopup" class="TaskAddedPopup d-none">
+          <img src="img/task-added.png" alt="" />
+        </div>
+        <button id="clearCancelButton" class="button02" onclick="clearAddTask()">Clear
+          <p style="rotate: 45deg; font-size: 30px; font-weight: 200; padding-bottom: 1px;">+</p>
+        </button>
+        <button type="submit" id="createTask" onclick="createTask()" class="button01">Create
+          Task
+          <img class="plus-done" src="img/done.png" alt="">
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

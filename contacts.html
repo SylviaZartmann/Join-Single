@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join - Contacts</title>
+    <link rel="icon" href="./img/Capa1.png" type="image/x-icon" />
+    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="style/add-task.css" />
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/contact.css" />
+    <link rel="stylesheet" href="style/board.css" />
+    <link rel="stylesheet" href="style/animations.css" />
+    <link rel="stylesheet" href="style/media.css" />
+    <link rel="stylesheet" href="style/mobile.css" />
+  </head>
+
+  <body id="contactContainer" onload="initContacts()" onclick="hideLogoutBtn()">
+    <header id="header-template"></header>
+    <button onclick="addMoveOverlay('overlayADDContactContainer', 'overlayAdd', 'contactContainer');" class="button01 d-none addContactButton">
+          <p>New contact</p>
+          <img src="img\add-new-contakt-icon.png" alt="add contact" height="25px" width="28px" />
+        </button>
+    <div id="content" class="contactBoard">
+      
+      <div class="contactContainer">
+        
+        <div class="contactListing" id="sortContactListing"></div>
+      </div>
+      <div id="contactOverview" class="contactOverview">
+        <div class="boardDescription">
+          <h1>Contacts</h1>
+          <div class="strich"></div>
+          <div class="boardSlogan">Better with a team</div>
+        </div>
+        <div id="initialsSectionRight"></div>
+        <button onclick="addMoveOverlay('overlayADDContactContainer', 'overlayAdd', 'contactContainer');" class="button01">
+          New contact
+          <img src="img\add-new-contakt-icon.png" alt="add contact" height="25px" width="28px" />
+        </button>
+        <div id="ContactCreatedPopup" class="ContactCreatedPopup d-none">
+            <img src="img/Contact-created.png" alt="" />
+        </div>
+      </div>
+
+      <div id="overlayContactDetails" class="overlay overlayContactDetails" onclick="closeOverlay('overlayContactDetails')">
+        <div id="responsiveContactDetails" class="responsiveContactDetails"> </div>
+      </div>
+
+      <div id="overlayAdd" class="overlay">
+        <div class="overlayContactContainer" id="overlayADDContactContainer">
+          <div class="headline">
+            <img class="overlayLogo" src="img\Join-icon.png" alt="Join Logo" />
+            <div class="overlayHeadline">
+              <span>Add contact</span>
+              <h6>Task are better with a team!</h6>
+            </div>
+            <span class="overlayLine"></span>
+          </div>
+          <div>
+            <div class="initialsSectionOverlay">
+              <div class="overlayAddUserPic">
+                <img src="img\user.png" alt="" width="41px" color="white" />
+              </div>
+              <div class="editInputs">
+                <p class="editInputsP" onclick="clearSubmit()">+</p>
+                <div class="formContacts">
+                  <input class="inputs" type="text" id="names" placeholder="Firstname Lastname" pattern="[\w\s]+\s[\w\s]+" required
+                    style="background-image: url('./img/user.png')"/>
+                  <span class="submitInputs submitContacts d-none" id="errorName">Please insert first- AND lastname.</span>
+                  <input class="inputs" type="email" required placeholder="e-mail" style="background-image: url('./img/mail-icon.png')" id="email" />
+                  <span class="submitInputs submitContacts d-none" id="errorMail">Please insert a valid e-Mail address containing "@".</span>
+                  <input class="inputs" type="number" required placeholder="Phone" style="background-image: url('./img/phone-icon.png')" id="phone" />
+                  <span class="submitInputs submitContacts d-none" id="errorPhone">Please insert a phonenumber, containing numbers only.</span>
+                  <div class="createContainer">
+                    <button onclick="clearSubmit()" class="button02">
+                      <p>Cancel</p>
+                      <p class="cancelcross">+</p>
+                    </button>
+                    <button onclick="createNewContact()" class="button01">
+                      <p>Create</p>
+                      <img src="img\done.png" alt="add contact" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="overlayEdit" class="overlay">
+        <div class="overlayContactContainer" id="overlayEditContactContainer">
+          <div class="headline">
+            <img class="overlayLogo" src="img\Join-icon.png" alt="Join Logo" />
+            <div class="overlayHeadline">Edit contact</div>
+            <span class="overlayLine"></span>
+          </div>
+          <div id="editInputs"></div>
+        </div>
+      </div>
+
+      <div id="addTask" class="overlay">
+        <div class="overlay-content" id="add-task-overlay">
+          <div class="add-task-template" id="add-task-template"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script/array.js"></script>
+    <script src="script/contacts.js"></script>
+    <script src="script/board.js"></script>
+    <script src="script/script.js"></script>
+    <script src="script/add-task.js"></script>
+  </body>
+</html>

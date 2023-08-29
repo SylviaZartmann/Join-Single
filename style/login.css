@@ -1,0 +1,263 @@
+body {
+  margin: 0;
+  background-color: #f5f5f5;
+}
+
+form {
+  gap: 25px;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.headline-one {
+  font-size: 56px;
+  margin: 38px 0 15px 0;
+}
+
+.login-header-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.move-logo-animation {
+  height: 150px;
+  object-fit: cover;
+  animation: moveLogo 1.5s ease-in-out forwards;
+}
+
+.login-header-container-sign-up {
+  opacity: 0;
+  animation: fadeIn 0.4s ease-in forwards 1.2s;
+}
+
+#login-sign-up-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 280px;
+  gap: 10px;
+  margin: 5% 10% 0 0;
+}
+
+.sign-up-button {
+  font-size: 16px;
+}
+
+.sign-up-span {
+  font-size: 21px;
+}
+
+.container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+  opacity: 0;
+  animation: fadeIn 0.4s ease-in forwards 1.2s;
+}
+
+#msg-box {
+  position: absolute;
+  bottom: 250px;
+  background-color: #2a3647;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  animation: fadeOut 0.5s ease-in forwards 2.5s;
+}
+
+.login-container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+  border-radius: 30px;
+  width: 652px;
+  height: max-content;
+  position: relative;
+}
+
+.log-in-underline {
+  border: 1px solid #29abe2;
+  width: 125px;
+  margin-bottom: 20px;
+}
+
+.login-form-container {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputsLogin {
+  width: 422px;
+  height: 50px;
+  border-style: unset;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: right 30px center;
+  font-size: 20px;
+}
+
+.inputsLogin::placeholder {
+  font-size: 20px;
+  color: #d1d1d1;
+}
+
+.remember-me-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.remember-me-container input {
+  cursor: pointer;
+}
+
+.remember-me-container span {
+  font-size: 18px;
+}
+
+.remember {
+  display: flex;
+  gap: 5px;
+} 
+
+.login-forgot-my-password {
+  padding-left: 30px;
+  color: #29abe2;
+  cursor: pointer;
+}
+
+.login-forgot-my-password:hover {
+  text-decoration: underline;
+}
+
+.log-in-button-container {
+  margin: 30px 0 38px 0;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.log-in-button-container button {
+  width: 180px;
+}
+
+.sign-up-container {
+  margin-top: 51px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+  border-radius: 30px;
+  width: 652px;
+  height: max-content;
+  position: relative;
+}
+
+.sign-up-container img {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.sign-up-form-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sign-up-button-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.forgot-my-password-container {
+  margin-top: 51px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+  border-radius: 30px;
+  width: 826px;
+  height: max-content;
+  position: relative;
+  padding: 40px;
+  margin-top: 140px;
+}
+
+.forgot-my-password-container p {
+  font-size: 21px;
+  text-align: center;
+}
+
+.forgot-my-password-container h1 {
+  text-align: center;
+}
+
+.forgot-my-password-form-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.forgot-my-password-container img {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.user-not-found {
+  padding: 0 0 0 10px;
+  font-size: 16px;
+  color: red;
+}
+
+@keyframes moveLogo {
+  0% {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(3);
+  }
+  100% {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

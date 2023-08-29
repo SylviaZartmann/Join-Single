@@ -1,0 +1,119 @@
+.move-overlay-animation {
+    animation: moveoverlay 0.5s ease-in-out;
+  }
+  
+  @keyframes moveoverlay {
+    0% {
+      top: 50%;
+      left: 100%;
+      transform: translate(0, -50%) scale(1);
+    }
+    100% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  
+  .close-overlay-animation {
+    animation: closeoverlay 0.5s ease-in-out;
+  }
+  
+  @keyframes closeoverlay {
+    0% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      top: 50%;
+      left: 100%;
+      transform: translate(0, -50%) scale(1);
+    }
+  }
+  
+  .move-task-up{
+    animation: moveTaskButton 0.5s ease-in-out;
+  }
+  
+  @keyframes moveTaskButton {
+    0% {
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, 0) scale(1);
+    }
+    100% {
+      top: 76%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  
+  .move-contactButton{
+    animation: moveContactButton 0.5s ease-in-out;
+  }
+  
+  @keyframes moveContactButton {
+    0% {
+      top: 70%;
+      left: 100%;
+      transform: translate(0, -50%) scale(1);
+    }
+    100% {
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  
+  .close-contactButton{
+    animation: closeContactButton 0.5s ease-in-out;
+  }
+  
+  @keyframes closeContactButton {
+    0% {
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      top: 70%;
+      left: 100%;
+      transform: translate(0, -50%) scale(1);
+    }
+  }
+  
+  .close-site{
+    animation: closeSite 1s ease-in-out;
+  }
+  
+  @keyframes closeSite {
+    0% {
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      top: 30%;
+      left: 100%;
+      transform: translate(0, -50%) scale(1);
+    }
+  }
+  
+  .open-site{
+    animation: openSite 1s ease-in-out;
+  }
+  
+  @keyframes openSite {
+    0% {
+      top: 34%;
+      left: -50%;
+      transform: translate(0, -50%) scale(1);
+    }
+    100% {
+      top: 34%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  
