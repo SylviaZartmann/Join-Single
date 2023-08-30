@@ -1,3 +1,12 @@
+/**
+ * initializes the Add Task Template, checks which webpage is currently on, to know which animation should be played
+ * getting the situation to know, where to place it
+ * clearing local storage to start new
+ * adding available categories from storage
+ * setting the min date for calender to see only future dates
+ * @param {*} situation gives the task the situation (todo, progress, awaiting, done) so it can be displayed correct in board
+ */
+
 function initAddTask(situation) {
   showHeaderTemplate().then(() => {
     CurrentlyActiveWebpage('add-task.html', 'navAddTask');
@@ -11,14 +20,14 @@ function initAddTask(situation) {
   });
 }
 
-
+/** fetching the Add Task template*/
 async function showAddTaskTemplate() {
   const response = await fetch('templates/add-task.html');
   const template = await response.text();
   document.getElementById('add-task-template').innerHTML = template;
 }
 
-
+/**adding all the available categories from storage */
 function addAvailableCategories() {
   emptyInnerHTML('available-categories');
   for (let i = 0; i < categories.length; i++) {
@@ -35,7 +44,9 @@ function addAvailableCategories() {
   }
 }
 
-
+/**
+ * saving new categories from input and push it into storage
+ */
 function saveNewCategory() {
   let color = document.getElementById('color-select').value;
   let category = formValidation('add-new-category', 'submitCategoryInput');
@@ -52,21 +63,30 @@ function saveNewCategory() {
   }
 }
 
-
+/**
+ * displaying  all the teammates we can assign this task to, getting them from storage
+ */
 function assignToOptions() {
   emptyInnerHTML('assign-to');
   for (let i = 0; i < contacts.length; i++) {
-    document.getElementById('assign-to').innerHTML += `
+    if (contacts[i].firstName == 'deleted') {
+      continue
+    } else {
+      document.getElementById('assign-to').innerHTML += `
     <lable class="input-options-contacts">
       ${contacts[i].firstName} ${contacts[i].lastName}
       <input class="input-teamMates" onclick="displaySelectedTeammates()" type="checkbox" value="${i}">
       <span class="checkmark"></span>
     </lable>
     `;
+    }
   }
 }
 
-
+/**
+ * showing selected priority in task by adding specific CSS classes
+ * urgent, medium, low
+ */
 let priorities = [];
 function setAndTogglePriorities(priority, not1, not2) {
   let prioContainer = document.getElementById(priority);
@@ -83,14 +103,19 @@ function setAndTogglePriorities(priority, not1, not2) {
   }
 }
 
-
+/**
+ * by closing the window without saving, all the selction should be removed
+ */
 function unsetPriorityOfTask() {
   document.getElementById('urgent').classList.remove('urgent');
   document.getElementById('medium').classList.remove('medium');
   document.getElementById('low').classList.remove('low');
 }
 
-
+/**
+ * create new task by identifying the tasks array elements
+ * first and last - open and close dropdown, so its content is available
+ */
 function createTask() {
   downTheDropdown();
   let situation = currentSituation[0];
@@ -106,7 +131,18 @@ function createTask() {
   isValidInputCreateTask(situation, title, description, category, teammates, dueDate, priority, subtasks, checkedSubtasks);
 }
 
-
+/**
+ * validating the input of title and dueDate, the only two, which are neccassary
+ * @param {*} situation see above
+ * @param {*} title see above
+ * @param {*} description see above
+ * @param {*} category see above
+ * @param {*} teammates see above
+ * @param {*} dueDate see above
+ * @param {*} priority see above
+ * @param {*} subtasks see above
+ * @param {*} checkedSubtasks see above
+ */
 function isValidInputCreateTask(situation, title, description, category, teammates, dueDate, priority, subtasks, checkedSubtasks) {
   if (title.length >= 3 && dueDate.length >= 3) {
     whatAndWhereToPushCreateTask(situation, title, description, category, teammates, dueDate, priority, subtasks, checkedSubtasks);
@@ -117,7 +153,7 @@ function isValidInputCreateTask(situation, title, description, category, teammat
   }
 }
 
-
+/** push the new created task after validation into array */
 function whatAndWhereToPushCreateTask(situation, title, description, category, teammates, dueDate, priority, subtasks, checkedSubtasks) {
   let newTask = {
     situation: situation,
@@ -139,7 +175,11 @@ function theSituationIs(situation) {
   currentSituation.push(situation);
 }
 
-
+/**
+ * getting all the checked inputs of categories and teammates
+ * @param {*} whichInput categories and teammates
+ * @returns all the checked check boxes
+ */
 function getCheckedCheckboxes(whichInput) {
   let checkedCheckboxes = [];
   let checkedBoxes = document.querySelectorAll(`input.${whichInput}:checked`);
@@ -149,7 +189,9 @@ function getCheckedCheckboxes(whichInput) {
   return checkedCheckboxes;
 }
 
-
+/**
+ * displayes the selected categories into another container
+ */
 function displaySelectedCategories() {
   let checkedCategoryCheckboxes = getCheckedCheckboxes('input-cate');
   emptyInnerHTML('selected-categories');
@@ -160,7 +202,9 @@ function displaySelectedCategories() {
   }
 }
 
-
+/**
+ * displayes the selected teammates into another container
+ */
 function displaySelectedTeammates() {
   let checkedTeamCheckboxes = getCheckedCheckboxes('input-teamMates');
   emptyInnerHTML('selected-teammates');
@@ -183,7 +227,9 @@ function setMinDate() {
   dateInput.min = formattedToday;
 }
 
-
+/**
+ * getting  the subtasks from input and saving them in local storage
+ */
 function getSubtasksFromInput() {
   let subtasks = loadStoredSubtasks();
   let subtask = formValidation('add-subtask', 'submitSubtaskInput');
@@ -196,7 +242,10 @@ function getSubtasksFromInput() {
   }
 }
 
-
+/**
+ * loades all the stored subtasks from local stoarge
+ * @returns stored subtasks or empty array
+ */
 function loadStoredSubtasks() {
   let storedSubtasks = JSON.parse(localStorage.getItem('subtasks'));
   if (storedSubtasks) {
@@ -206,7 +255,9 @@ function loadStoredSubtasks() {
   }
 }
 
-
+/**
+ * empties the localstorage
+ */
 function clearLocalStorage() {
   localStorage.removeItem('subtasks');
   localStorage.removeItem('NewSubtasksFromEdit');
@@ -216,7 +267,9 @@ function clearLocalStorage() {
   displaySubtasks();
 }
 
-
+/**
+ * displayes all the subtasks, when added
+ */
 function displaySubtasks() {
   let subtasks = loadStoredSubtasks();
   emptyInnerHTML('subtask');
@@ -230,7 +283,9 @@ function displaySubtasks() {
   }
 }
 
-
+/**
+ * closing the template of Add Task - tiding up the template
+ */
 function closeTemplateAddTask() {
   clearLocalStorage();
   clearTextarea();
@@ -239,7 +294,9 @@ function closeTemplateAddTask() {
   removeMoveOverlay('add-task-overlay', 'addTask', 'bodyBoard');
 }
 
-
+/**
+ * removes the move animation and popup by closing, when task is added
+ */
 function removeMoveOverlayTaskAdded(id, background) {
   document.getElementById(id).classList.remove('move-overlay-animation');
   document.getElementById('TaskAddedPopup').classList.remove('d-none');
@@ -253,7 +310,9 @@ function removeMoveOverlayTaskAdded(id, background) {
   }, 2000);
 }
 
-
+/**
+ * adds a animation to the popup when task is added and sets a timeout to redirect to another page
+ */
 function addMoveSite() {
   document.getElementById('TaskAddedPopup').classList.remove('d-none');
   document.getElementById('TaskAddedPopup').classList.add('move-task-up');
@@ -264,7 +323,10 @@ function addMoveSite() {
 
 
 /** EDIT TASK*/
-
+/**
+ * displayes the task to be edited into add task template
+ * @param {*} i - index of specific task
+ */
 function displayEditTask(i) {
   closeOverlay('taskDetail');
   addMoveOverlay('add-task-overlay', 'addTask', 'bodyBoard');
@@ -277,7 +339,10 @@ function displayEditTask(i) {
   });
 }
 
-
+/**
+ * filles the add task template with data from array
+ * @param {*} i  - index of specific task
+ */
 function fillAddTaskTemplate(i) {
   document.getElementById('title-input').value = todos[i].title;
   document.getElementById('description-input').value = todos[i].description;
@@ -289,7 +354,12 @@ function fillAddTaskTemplate(i) {
   showCheckedCheckboxesEditTask(i, 'checkedSubtasks', 'input-subtask');
 }
 
-
+/**
+ * shows the checked checkboxes 
+ * @param {*} i - index of specific task
+ * @param {*} arrayElement - categories or teammates
+ * @param {*} checkboxesClass - inputs of categories or teammates
+ */
 function showCheckedCheckboxesEditTask(i, arrayElement, checkboxesClass) {
   let checkedValues = todos[i][arrayElement];
   let checkboxes = document.querySelectorAll(`input.${checkboxesClass}`);
@@ -300,7 +370,10 @@ function showCheckedCheckboxesEditTask(i, arrayElement, checkboxesClass) {
   });
 }
 
-
+/**
+ * updateing the tasks data and renew its position by rewrite the data
+ * @param {*} i - index of specific task
+ */
 function updateTaskData(i) {
   downTheDropdown();
   let title = formValidation('title-input', 'submitTitleInput');
@@ -315,7 +388,18 @@ function updateTaskData(i) {
   undownTheDropdown();
 }
 
-
+/**
+ * checks if title and dueDate are valid - if so it pushed into local storage
+ * @param {*} i - index of specific task
+ * @param {*} title  - see above
+ * @param {*} description  - see above
+ * @param {*} category  - see above
+ * @param {*} teammates  - see above
+ * @param {*} dueDate  - see above
+ * @param {*} priority  - see above
+ * @param {*} subtasks  - see above
+ * @param {*} checkedSubtasks  - see above
+ */
 function isValidInputUpdateTask(i, title, description, category, teammates, dueDate, priority, subtasks, checkedSubtasks) {
   if (title.length >= 3 && dueDate.length >= 3) {
     whichIsWhereToPushTask(i, title, description, category, teammates, dueDate, priority, subtasks, checkedSubtasks);
@@ -328,7 +412,7 @@ function isValidInputUpdateTask(i, title, description, category, teammates, dueD
   }
 }
 
-
+//...
 function whichIsWhereToPushTask(i, title, description, category, teammates, dueDate, priority, subtasks, checkedSubtasks) {
   if (todos[i]) {
     todos[i].title = title;
@@ -342,7 +426,9 @@ function whichIsWhereToPushTask(i, title, description, category, teammates, dueD
   }
 }
 
-
+/** 
+ * displayes correct saved priority for specific task
+*/
 function displayCorrectPriority(i) {
   if (todos[i].priority === 'urgent') {
     checkForCorrectPriority('urgent', 'medium', 'low');
@@ -353,7 +439,12 @@ function displayCorrectPriority(i) {
   }
 }
 
-
+/**
+ * drawes the specific color of selscted priority and add r removes classes from ClassList
+ * @param {*} priority - see above
+ * @param {*} not1  - see above
+ * @param {*} not2  - see above
+ */
 function checkForCorrectPriority(priority, not1, not2) {
   document.getElementById(priority).classList.add(priority);
   document.getElementById(not1).classList.remove(not1);
@@ -361,7 +452,10 @@ function checkForCorrectPriority(priority, not1, not2) {
   priorities = [priority];
 }
 
-
+/**
+ * displayes all the selected subtasks
+ * @param {*} i - index of specific task
+ */
 function displaySubtasksEditTask(i) {
   if (todos[i].subtasks) {
     emptyInnerHTML('subtask');
@@ -371,7 +465,10 @@ function displaySubtasksEditTask(i) {
   }
 }
 
-
+/**
+ * generates html of subtasks, which where already saved in tasks
+ * @param {*} i - index of specific task
+ */
 function isThereSubtasksInEditTask(i) {
   for (let g = 0; g < todos[i].subtasks.length; g++) {
     document.getElementById('subtask').innerHTML += `
@@ -383,7 +480,11 @@ function isThereSubtasksInEditTask(i) {
   }
 }
 
-
+/**
+ * generates the html of new created subtasks by getting the current length of subtasks in the task
+ * so we can start from this index on, to give the new subtasks counting index
+ * @param {*} i - index of specific task
+ */
 function displayNewSubtasksEditTask(i) {
   let length = todos[i].subtasks ? todos[i].subtasks.length : 0;
   emptyInnerHTML('newSubtask');
@@ -397,7 +498,9 @@ function displayNewSubtasksEditTask(i) {
   }
 }
 
-
+/**
+ * gets and pushes new subtasks from input
+ */
 let NewSubtasksFromEdit = [];
 function getAndPushNewSubtasksFromInput(i) {
   let subtaskInput = formValidation('add-subtask', 'submitSubtaskInput');
@@ -411,7 +514,11 @@ function getAndPushNewSubtasksFromInput(i) {
   showCheckedCheckboxesEditTask(i, 'checkedSubtasks', 'input-subtask');
 }
 
-
+/**
+ * pushes new subtasks into the subtasks array
+ * @param {*} i - index of specific task
+ * @returns the new subtasks array of the upper array "todos"
+ */
 function pushNewSubtasksIntoSubtasksArray(i) {
   let NewSubtasksFromEdit = JSON.parse(localStorage.getItem('NewSubtasksFromEdit'));
   if (NewSubtasksFromEdit && NewSubtasksFromEdit.length > 0) {
@@ -421,13 +528,17 @@ function pushNewSubtasksIntoSubtasksArray(i) {
   return todos[i].subtasks;
 }
 
-
+/**
+ * gets new category from input and shows the old categories and check them again
+ */
 function getNewCategoryFromInputShowOldInput(i) {
   saveNewCategory();
   showCheckedCheckboxesEditTask(i, 'category', 'input-cate');
 }
 
-
+/**
+ * tiding up the template
+ */
 function clearAddTask() {
   clearLocalStorage();
   unsetPriorityOfTask();

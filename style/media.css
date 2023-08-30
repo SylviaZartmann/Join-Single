@@ -79,15 +79,16 @@
     top: 50%;
     left: 50%;
     width: 80%;
-    height: 80%;
+    height: fit-content;
   }
 
   .headline {
     flex-direction: column;
+    align-items: center;
     border-radius: 30px 30px 0 0;
-    width: 85%;
     height: 40%;
-    padding: 70px 0px 0px 15%;
+    width: 100%;
+    padding: 70px 0px 0px 0;
     gap: 12px;
   }
 
@@ -105,19 +106,19 @@
     font-size: 47px;
     width: 120px;
     height: 120px;
-    margin-bottom: 30px;
+    margin: 30px 0 30px 0;
   }
 
   .initialsoverlay {
     font-size: 47px;
     width: 120px;
     height: 120px;
-    margin-bottom: 30px;
+    margin: 30px 0 30px 0;
   }
 
   .initialsSectionOverlay {
     flex-direction: column;
-    margin: -91px 50px 40px 50px;
+    margin: -60px 50px 40px 50px;
   }
 
   /* CONTACTS */
@@ -367,7 +368,8 @@
   }
 
   .headline {
-    padding: 70px 0px 0px 15%;
+    width: 100%;
+    padding: 55px 0px 0px 0;
   }
 
   .overlayHeadline {
@@ -438,6 +440,7 @@
   .legal-notice {
     margin-top: 0;
   }
+
   .med-container {
     margin-top: 0;
   }
@@ -559,7 +562,7 @@
     margin: 30px 0 15px 0;
   }
 
-  .remeber {
+  .remember {
     display: flex;
     gap: 10px;
   }
@@ -851,7 +854,7 @@
 
   .addContactButton {
     right: 2%;
-    top: 80%;
+    top: 75%;
   }
 
   .addContactButton p {
@@ -880,10 +883,10 @@
 
   .headline {
     flex-direction: column;
+    align-items: center;
     border-radius: 30px 30px 0 0;
-    width: 85%;
+    width: 100%;
     height: 30%;
-    padding: 70px 0px 0px 15%;
     gap: 12px;
   }
 
@@ -940,6 +943,19 @@
 
   .contactContainer {
     padding: 80px 0 80px 0;
+  }
+  
+  .input-category {
+    margin-left: 15px;
+    margin-right: -45px;
+  }
+  
+  #selected-teammates, #selected-categories{
+    padding-left: 20px;
+  }
+
+  #selected-teammates .circle, #selected-categories .circle{
+    margin-left: -15px;
   }
 }
 

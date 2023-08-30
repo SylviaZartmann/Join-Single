@@ -87,6 +87,9 @@
     gap: 0;
     padding: 0 35px 0 0;
   }
+  .overlay input, .overlay textarea {
+    font-size: 18px;
+  }
 
   /* LOGIN */
 
@@ -125,7 +128,7 @@
     margin: 30px 0 15px 0;
   }
 
-  .remeber {
+  .remember {
     display: flex;
     gap: 10px;
   }
@@ -366,6 +369,11 @@
   }
 
   /* ADD-TASK */
+
+  .strich-gray4  {
+    margin: 0 5px 0 5px;
+
+  }
 
   /* CONTACT */
 
@@ -640,6 +648,18 @@
 
 
   /** ADD TASK */
+  .new-category-container, .assign-to {
+    font-size: 18px;
+    width: -webkit-fill-available;
+  }
+
+  .assign-to-dd  {
+    font-size: 18px;
+  }
+
+  .prioContainer {
+    font-size: 16px;
+  }
   
 
   /** CONTACTS */
@@ -708,6 +728,9 @@
     width: 30px;
     height: 40px;
   }
+  .med-container {
+    margin-top: 0;
+  }
 
   .initialsoverlay {
     margin-top: -70px;
@@ -718,7 +741,8 @@
     width: 95%;
   }
   .overlayContactContainer {
-width: 90%;
+    width: 90%;
+    height: fit-content;
   }
 
   .createContainer .button01 {

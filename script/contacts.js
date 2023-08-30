@@ -54,7 +54,12 @@ function HTMLStructureToPush(j) {
   return structureHTML;
 }
 
-
+/**
+ * only if structure array has elements the letter category should be shown
+ * @param {*} i - index of characters (letters) to be sorted after
+ * @param {*} structure - array of the HTML structure which should be displayed after
+ * @param {*} firstCharacter - first character of the lastname of contacts
+ */
 function isThereAStructure(i, structure, firstCharacter) {
   if (structure.length > 0) {
     document.getElementById('sortContactListing').innerHTML += `
@@ -68,7 +73,10 @@ function isThereAStructure(i, structure, firstCharacter) {
   }
 }
 
-
+/**
+ * generating contactdetails depending on windowwidth (responsiveness)
+ * @param {*} j - index of specific contact
+ */
 function generateContactDetails(j) {
   if (window.innerWidth <= 820) {
     openOverlay('overlayContactDetails');
@@ -80,6 +88,11 @@ function generateContactDetails(j) {
   }
 }
 
+/**
+ * generating the html of the contacts in detail
+ * @param {*} j  - index of specific contact
+ * @param {*} window  - depending on windowwidth the different containers to be generated in
+ */
 function generateHTMLInDefaultWindow(j, window) {
   document.getElementById(window).innerHTML = `
   <div class="initialsSection">
@@ -113,7 +126,10 @@ function createNewContact() {
   addMoveOverlay('overlayADDContactContainer', 'overlayAdd', 'contactContainer');
 }
 
-
+/**
+ * generates a random color for contacts circle background
+ * @returns the generated color
+ */
 function randomColorGeneration() {
   const letters = 'ABCDEF1234567890';
   let color = '#';
@@ -165,7 +181,11 @@ function validateContactInputs(name, email, phone) {
   return isValidNames && isValidEmail && isValidPhone;
 }
 
-
+/**
+ * removes the overlay of contact container when added or edited
+ * @param {*} id - specific index of contact
+ * @param {*} background - which overlay is shown
+ */
 function removeMoveOverlayContactAdded(id, background) {
   document.getElementById(id).classList.remove('move-overlay-animation');
   document.getElementById(id).classList.add('close-overlay-animation');
@@ -238,7 +258,10 @@ function generateInnerHTMLEditOverlay(j) {
   `;
 }
 
-
+/**
+ * deleting from array and replace it with deleted contact, coz otherwise contacts in tasks could be generated wrong
+ * @param {*} i - index of specific contact
+ */
 function deleteContactData(i) {
   contacts.splice(i, 1);
   contacts.splice(i, 0, { firstName: 'deleted', lastName: 'contact', email: 'deleted@contact', phone: '0123456789', color: '#bebebe', initials: 'DC' });

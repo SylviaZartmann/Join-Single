@@ -131,9 +131,10 @@
 #category-new-input {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   background-color: white;
   height: 40px;
+  position: relative;
 }
 
 .category-new-input input::placeholder {
@@ -144,6 +145,12 @@
   display: flex;
   align-items: center;
   padding: 0 10px 0 0;
+}
+
+.accept-category {
+  position: absolute;
+  right: 3%;
+  display: flex;
 }
 
 .input-category {

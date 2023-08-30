@@ -1,6 +1,6 @@
-/** BOARD
+/**
+ * initializes the Board page
  */
-
 function initBoard() {
   showHeaderTemplate().then(() => {
     CurrentlyActiveWebpage('board.html', 'navBoard');
@@ -9,7 +9,9 @@ function initBoard() {
   });
 }
 
-
+/**
+ * initializes the add task template with the new situation (todo, progress, awaiting, done)
+ */
 function initTemplateAddTask(situation) {
   addMoveOverlay('add-task-overlay', 'addTask', 'bodyBoard');
   showAddTaskTemplate().then(() => {
@@ -22,7 +24,9 @@ function initTemplateAddTask(situation) {
 }
 
 
-
+/**
+ * displayes all tasks from localstorage in board
+ */
 function displayTasksInBoard() {
   cleanWorkBoardspaces();
   for (let i = 0; i < todos.length; i++) {
@@ -33,7 +37,7 @@ function displayTasksInBoard() {
   }
 }
 
-
+/** tiding up by emptying the board */
 function cleanWorkBoardspaces() {
   emptyInnerHTML('todo');
   emptyInnerHTML('progress');
@@ -57,7 +61,9 @@ function isSituationSituation (i) {
   }
 }
 
-
+/** 
+ * generates the html of tasks in board
+*/
 function generateTodoHTML(i) {
   document.getElementById(todos[i].situation).innerHTML += `
       <div id="task${i}" draggable="true" ondragstart="startdragging(${i})" onclick="displayTaskBoardDetail(${i})" class="BoardTask">
@@ -88,7 +94,10 @@ function displayTasksCategories(i) {
   }
 }
 
-
+/**
+ * generates the html of the progressbar
+ * @param {*} i - index of specific task
+ */
 function displayProgressbar(i) {
   if (todos[i].subtasks && todos[i].subtasks.length > 0) {
     emptyInnerHTML('progressbar' + i);
@@ -102,7 +111,10 @@ function displayProgressbar(i) {
   }
 }
 
-
+/**
+ * styling the progressbar by checked subtasks and individualizes the percentage of its width
+ * @param {*} i - index of specific task
+ */
 function styleProgressbar(i) {
   let progresswidth = progressbarProgress(i);
   document.getElementById(`progressbar-progress` + i).style.width = progresswidth + '%';
@@ -126,7 +138,10 @@ function progressbarProgress(i) {
   }
 }
 
-
+/**
+ * displayes the correct image of urgency from array of this specific task
+ * @param {*} i - index of specific task
+ */
 function modifyPriorityIconInTask(i) {
   emptyInnerHTML('Board-Task' + i);
   if (todos[i].priority === 'urgent') {
@@ -138,18 +153,21 @@ function modifyPriorityIconInTask(i) {
   }
 }
 
-
+//...
 function whichImageUrgency(i, priority, picture) {
   setBackgroundColorProgressbar(i, priority);
   document.getElementById('Board-Task' + i).innerHTML = picture;
 }
 
-
+/** giving the progressbar the color of the specific priority */
 function setBackgroundColorProgressbar(i, urgency) {
   document.getElementById(`progressbar-progress` + i).classList.add(urgency);
 }
 
-
+/**
+ * displayes the selectes teammates from the task
+ * @param {*} i - index of specific task
+ */
 function displayTasksTeammates(i) {
   emptyInnerHTML('Boardteammates' + i);
   for (let k = 0; k < todos[i].teammates.length; k++) {
@@ -161,7 +179,10 @@ function displayTasksTeammates(i) {
   }
 }
 
-
+/**
+ * generating the html of the tasks in detail after clicking on the task
+ * @param {*} i - index of specific task
+ */
 function displayTaskBoardDetail(i) {
   openOverlay('taskDetail');
   document.getElementById('bodyBoard').classList.add('dontScoll');
@@ -196,7 +217,10 @@ function displayTaskBoardDetail(i) {
   displayTeamBoardDetail(i);
 }
 
-
+/**
+ * generates html of the categories the seltected task contains
+ * @param {*} i - index of specific task
+ */
 function displayCategoriesBoardDetail(i) {
   emptyInnerHTML('BoardDetailCategory' + i);
   for (let j = 0; j < todos[i].category.length; j++) {
@@ -205,7 +229,10 @@ function displayCategoriesBoardDetail(i) {
   }
 }
 
-
+/**
+ * generates html of the teammates the seltected task contains
+ * @param {*} i - index of specific task
+ */
 function displayTeamBoardDetail(i) {
   emptyInnerHTML('BoardDetailTeam' + i);
   for (let k = 0; k < todos[i].teammates.length; k++) {
@@ -218,7 +245,10 @@ function displayTeamBoardDetail(i) {
   }
 }
 
-
+/**
+ * generates html of the prioritys the seltected task contains
+ * @param {*} i - index of specific task
+ */
 function displayPriorityBoardDetail(i) {
   emptyInnerHTML('BoardDetailPrio' + i);
   if (todos[i].priority === 'urgent') {
@@ -243,7 +273,10 @@ function whichPriorityHTMLBoardDetail(i, urgency, Urgency, picture) {
   `;
 }
 
-
+/**
+ * deleting a task and removing it from array and loacalstorage
+ * @param {*} i - index of specific task
+ */
 function deleteTask(i) {
   todos.splice(i, 1);
   saveInLocalStorage('todos', todos);
@@ -251,7 +284,7 @@ function deleteTask(i) {
   displayTasksInBoard();
 }
 
-
+//...
 function closeTemplateBoardDetails() {
   closeOverlay('taskDetail');
   document.getElementById('bodyBoard').classList.remove('dontScoll');
@@ -260,23 +293,33 @@ function closeTemplateBoardDetails() {
 
 /** DRAG & DROP */
 
+/**
+ * defining wich task is dragged
+ */
 let currentlyDraggedElement;
 function startdragging(id) {
   currentlyDraggedElement = id;
 }
 
-
+/**
+ * checks the container where to drop and gives it a border
+ */
 function allowDrop(ev, task) {
   ev.preventDefault();
   document.getElementById('dragdrop_' + task).classList.add('border');
 }
 
-
+/**
+ * removes the class border, when dragging over another container
+ * @param {*} task - todo, progress, awaiting, done
+ */
 function endDrap(task) {
   document.getElementById('dragdrop_' + task).classList.remove('border');
 }
 
-
+/**
+ * removes border, when dragging is over
+ */
 function endDrop() {
   const situations = ['todo', 'progress', 'awaiting', 'done'];
   for (const situation of situations) {
@@ -287,7 +330,10 @@ function endDrop() {
   }
 }
 
-
+/**
+ * giving the dragged element a new situation after dropping it
+ * @param {*} situation - todo, progress, awaiting, done
+ */
 function changePos(situation) {
   todos[currentlyDraggedElement]['situation'] = situation;
   saveInLocalStorage('todos', todos);
@@ -297,6 +343,9 @@ function changePos(situation) {
 
 /** SEARCH TASKS */
 
+/**
+ * search the tasks by filter the titles and its letters and elements
+ */
 function filterTasks() {
   let filterValue = document.getElementById('filterInput').value.toUpperCase();
   for (let i = 0; i < todos.length; i++) {

@@ -185,35 +185,3 @@
   font-size: 47px;
   font-weight: 500;
 }
-
-.logout-container {
-  margin-top: 60px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
-  height: 110px;
-}
-
-.logout-container-child {
-  position: absolute;
-  top: 65px;
-  right: -10px;
-  width: max-content;
-  padding: 12px 20px;
-  background-color: #2b3647;
-  border-radius: 15px 0 15px 15px;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-}
-
-.logout-container-child a {
-  text-align: center;
-  color: #cdcdcd !important;
-  padding: 5px;
-}
-
-.logout-container-child a:hover {
-  color: #ffffff !important;
-}
