@@ -1,14 +1,28 @@
 @media only screen and (max-width: 1350px) {
-  .child-container-right,
-  .child-container-left {
-    width: 400px;
+
+  /* ADD TASK */
+  .add-task-container-main {
+    padding-left: 290px;
   }
 
-  .title,
-  .description {
+  #addTaskForm {
     width: -webkit-fill-available;
   }
 
+  .first-container {
+    width: 100%;
+  }
+  .child-container-left, .child-container-right {
+    width: 400px;
+  }
+
+  #add-task-overlay {
+    width: 90%;
+  }
+  
+  .add-task-template {
+    width: 90%;
+  }
   /* CONTACTS */
 
   .text-overflow, .taskForNameLeft {
@@ -16,23 +30,46 @@
   }
 }
 
-@media only screen and (max-width: 1270px) {
-  .child-container-right,
-  .child-container-left {
-    width: 360px;
+@media only screen and (max-width: 1300px) {
+  /* ADD TASK */
+  .add-task-container-main {
+    padding-left: 270px;
   }
+  .child-container-left, .child-container-right {
+    width: 380px;
+}
+}
+@media only screen and (max-width: 1270px) {
+
+  .boards {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .greeting {
+    width: 580px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #greeting {
+    font-size: 27px;
+  }
+
+  #greet-user {
+    font-size: 30px;
+    padding-left: 20px;
+  }
+
   .prioContainer {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 
 @media only screen and (max-width: 1200px) {
-  #headerAddTask {
-    font-size: 47px;
-  }
-  .greeting {
-    display: none;
-  }
 
   .overlayContactContainer {
     display: flex;
@@ -83,152 +120,6 @@
     margin: -91px 50px 40px 50px;
   }
 
-  /* ADD-TASK */
-
-  .add-task-container-main {
-    padding: 160px 0 0 260px;
-    margin: 0 90px 100px 0;
-  }
-
-  .overlay-content {
-    width: 93%;
-    height: fit-content;
-  }
-
-  .add-task-template {
-    display: flex;
-    flex-direction: column;
-    margin: 15px;
-  }
-
-  .first-container {
-    flex-direction: column;
-    margin-top: 20px;
-  }
-
-  .child-container-left {
-    width: 100%;
-    gap: 0px;
-  }
-
-  .child-container-right {
-    width: 100%;
-    gap: 0px;
-  }
-  .child-container-right h4,
-  .child-container-left h4 {
-    margin: 10px 0 10px 0;
-    font-size: 16px;
-  }
-
-  .title {
-    height: 41px;
-    font-size: 16px;
-    padding: 0 0 0 10px;
-    margin: 0;
-    width: -webkit-fill-available;
-  }
-
-  .description {
-    height: 30px;
-    font-size: 16px;
-    padding: 10px 0 0 10px;
-    width: -webkit-fill-available;
-  }
-
-  .new-category-container {
-    font-size: 16px;
-    width: 100%;
-  }
-
-  .assign-to-main {
-    font-size: 16px;
-    width: 100%;
-  }
-
-  .strich-gray3 {
-    height: 5px;
-  }
-
-  .input-category {
-    font-size: 16px;
-    height: 20px;
-  }
-
-  .difficulty-level {
-    width: 100%;
-  }
-
-  .prioContainer {
-    width: 100%;
-    gap: 5px;
-    padding: 10px 0 10px 0;
-    font-size: 16px;
-  }
-
-  .prioContainer:hover {
-    padding: 10px 5px 10px 5px;
-    box-shadow: rgba(0, 0, 0, 0.01) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
-      rgba(0, 0, 0, 0.01) 0px 8px 4px, rgba(0, 0, 0, 0.01) 0px 6px 2px,
-      rgba(0, 0, 0, 0.01) 0px 2px 2px;
-  }
-
-  .align-Add-Subtask {
-    width: 100%;
-  }
-
-  .cancel-icon {
-    width: 12px;
-    height: 12px;
-  }
-
-  .done-icon2 {
-    width: 12px;
-    height: 12px;
-  }
-
-  .checkmark {
-    width: 12px;
-    height: 12px;
-  }
-
-  .input-options-contacts .checkmark:after,
-  .subtask .checkmark:after {
-    width: 10px;
-    height: 10px;
-    margin: 1px 0 0 1px;
-  }
-
-  .input-options-contacts input,
-  .subtask input {
-    width: 100%;
-  }
-
-  .closeXtemplate {
-    font-size: 50px;
-    top: -5%;
-    left: 96%;
-  }
-
-  .buttons-add-task-fix {
-    gap: 40px;
-  }
-
-  .newsubtasks-subtasks {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .display-subtasks {
-    height: 75px;
-    width: 50%;
-  }
-
-  .display-newsubtasks {
-    height: 75px;
-    width: 50%;
-  }
-
   /* CONTACTS */
 
   .text-overflow, .taskForNameLeft {
@@ -241,9 +132,68 @@
   }
 }
 
+@media only screen and (max-width: 1150px) {
+  .child-container-left, .child-container-right {
+    width: 350px;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .child-container-left, .child-container-right {
+    width: 320px;
+  }
+}
+
+
 @media only screen and (max-width: 1020px) {
   .contactOverview {
     margin-left: 15px;
+  }
+
+  /* ADD TASK MAIN*/
+
+  .first-container {
+    flex-direction: column;
+  }
+
+  .strich-gray3 {
+    display: none;
+  }
+  .child-container-left, .child-container-right {
+    width: 95%;
+  }
+
+  .add-task-container-main {
+    padding: 115px 0 0 270px;
+    margin-bottom: 50px;
+  }
+  
+  /* ADD TASK TEMP*/
+
+  #add-task-overlay {
+    align-items: center;
+    justify-content: flex-start;
+    height: 90%;
+    overflow: scroll;
+    padding: 20px 0 20px 0;
+  }
+  #add-task-overlay::-webkit-scrollbar {
+    display: none;
+  }
+  .add-task-template {
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+  .first-container {
+    align-items: flex-start;
+  }
+  
+  .first-container h4 {
+    font-size: 18px
+  }
+
+  .closeXtemplate{
+    left: 90%;
   }
 }
 
@@ -274,10 +224,6 @@
     padding: 171px 0 0 265px;
   }
 
-  .greeting {
-    display: none;
-  }
-
   /*BOARD*/
 
   .board-content-main {
@@ -301,9 +247,6 @@
     gap: 0;
   }
 
-  .strich {
-    rotate: 90deg;
-  }
 
   .initialsSection {
     flex-direction: column;
@@ -438,6 +381,8 @@
     padding: 0 0 0 0;
   }
 
+  /* ADD TASK */
+
   /*LEGAL NOTICE + HELP*/
 
   .help-container-main,
@@ -489,6 +434,12 @@
     width: 100%;
     height: 80px;
     gap: 0;
+  }
+  .legal-notice {
+    margin-top: 0;
+  }
+  .med-container {
+    margin-top: 0;
   }
 
   .navButton {
@@ -656,7 +607,7 @@
 
   .summary {
     flex-direction: column;
-    gap: 10px;
+    gap: 0;
   }
 
   .summary h3 {
@@ -664,12 +615,11 @@
   }
 
   .strich {
-    display: none;
+    rotate: 90deg;
   }
 
   .board_of_boards {
     align-items: center;
-    width: 80vw;
   }
 
   .board-1 {
@@ -820,105 +770,18 @@
   /* ADD-TASK */
 
   .add-task-container-main {
-    padding: 100px 0 0 32px;
-    margin: 0 45px 100px 0;
+    padding: 100px 0 0 0;
+    margin-bottom: 120px;
   }
 
-  .overlay-content {
-    width: 93%;
-    height: fit-content;
+  .first-container{
+    align-items: center;
+  } 
+
+  .difficulty-level {
+    justify-content: space-around;
   }
 
-  .add-task-template {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .first-container {
-    flex-direction: column;
-    margin-top: 20px;
-  }
-
-  .child-container-left {
-    width: 100%;
-    gap: 0px;
-  }
-
-  .child-container-right {
-    width: 100%;
-    gap: 0px;
-  }
-
-  .child-container-right h4,
-  .child-container-left h4 {
-    margin: 10px 0 8px 0;
-    font-weight: 400;
-    font-size: 21px;
-  }
-
-  .new-category-container {
-    font-size: 16px;
-  }
-
-  .assign-to-main {
-    font-size: 16px;
-  }
-
-  .strich-gray3 {
-    height: 5px;
-  }
-
-  .input-category {
-    font-size: 16px;
-    height: 20px;
-  }
-
-  .prioContainer {
-    width: 100%;
-    gap: 5px;
-    padding: 10px 0 10px 0;
-    font-size: 16px;
-  }
-
-  .prioContainer:hover {
-    padding: 10px 5px 10px 5px;
-    box-shadow: rgba(0, 0, 0, 0.01) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
-      rgba(0, 0, 0, 0.01) 0px 8px 4px, rgba(0, 0, 0, 0.01) 0px 6px 2px,
-      rgba(0, 0, 0, 0.01) 0px 2px 2px;
-  }
-
-  .cancel-icon {
-    width: 12px;
-    height: 12px;
-  }
-
-  .done-icon2 {
-    width: 12px;
-    height: 12px;
-  }
-
-  .checkmark {
-    width: 12px;
-    height: 12px;
-  }
-
-  .input-options-contacts .checkmark:after,
-  .subtask .checkmark:after {
-    width: 10px;
-    height: 10px;
-    margin: 1px 0 0 1px;
-  }
-
-  .input-options-contacts input,
-  .subtask input {
-    width: 100%;
-  }
-
-  .closeXtemplate {
-    font-size: 50px;
-    top: -4%;
-    left: 93%;
-  }
 
   /* CONTACT */
 
@@ -1079,3 +942,14 @@
     padding: 80px 0 80px 0;
   }
 }
+
+
+@media only screen and (max-height: 710px) {
+.legal-notice {
+  margin-top: 5%;
+}
+.med-container {
+  margin-top: 20%;
+}
+}
+

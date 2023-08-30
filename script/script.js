@@ -27,13 +27,22 @@ function saveInLocalStorage(whatToSave, whereToSave) {
 
 function toggleLogoutBtn(event) {
   event.stopPropagation();
-  let button = document.getElementById('logout-btn');
-  button.classList.toggle('d-none');
+  document.getElementById('logout-menu').classList.toggle('d-none');
+  document.getElementById('logout-btn').classList.toggle('d-none');
+  if (window.innerWidth <= 820) {
+    document.getElementById('help-btn').classList.toggle('d-none');
+    document.getElementById('legal-notice-btn').classList.toggle('d-none');
+  }
 }
 
 
 function hideLogoutBtn() {
+  document.getElementById('logout-menu').classList.add('d-none');
   document.getElementById('logout-btn').classList.add('d-none');
+  if (window.innerWidth <= 820) {
+    document.getElementById('help-btn').classList.add('d-none');
+    document.getElementById('legal-notice-btn').classList.add('d-none');
+  }
 }
 
 
@@ -205,6 +214,7 @@ function rechangeButtonAddTask() {
     subtaskButton.setAttribute('onclick', `getSubtasksFromInput()`);
     clearCancelButton.innerHTML = 'Clear';
     clearCancelButton.setAttribute('onclick', `clearAddTask()`);
+
   }
   rechangeWhatHappenedToCategoryButton();
   toggleVisibility('category-new-input-submit');

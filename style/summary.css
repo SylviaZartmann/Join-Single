@@ -30,7 +30,7 @@
 
 .boards {
   display: flex;
-  justify-content: space-between;
+  gap: 100px;
   align-items: center;
   margin-top: 60px;
 }
@@ -174,7 +174,6 @@
 
 .greeting {
   width: 20%;
-  padding-right: 150px;
 }
 
 .greeting h1 {
@@ -196,14 +195,25 @@
   height: 110px;
 }
 
-.logout-container a {
+.logout-container-child {
   position: absolute;
-  text-align: center;
-  color: #cdcdcd !important;
-  bottom: 0px;
-  width: 70px;
+  top: 65px;
+  right: -10px;
+  width: max-content;
   padding: 12px 20px;
   background-color: #2b3647;
-  border-radius: 15px;
-  border-top-right-radius: 0px !important;
+  border-radius: 15px 0 15px 15px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.logout-container-child a {
+  text-align: center;
+  color: #cdcdcd !important;
+  padding: 5px;
+}
+
+.logout-container-child a:hover {
+  color: #ffffff !important;
 }
